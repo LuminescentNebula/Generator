@@ -1,111 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <link rel="stylesheet" id="style" href="style.css" type="text/css" media="all">
   <link rel="icon" type="image/svg" href="bird.svg">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <nav>
-      <ul>
-        <li><a href=".\games">Games</a>
-      </ul>
-    </nav>
-    <title>Липпо ДЗ</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="background.js"></script>
+  <title>Липпо ДЗ</title>
 </head>
+
 <body>
-    <div>
-        <h1>
-            <center><b>Добро пожаловать</b></center>
-        </h1>
+  <div id="header">
+    <aside>
+      <p>
+        <img src="bird.svg" height="100px" />
+      </p>
+    </aside>
+    <p>
+      <button class="menu"><a href=".\names.html">Генератор имён</a></button>
+      <button class="menu"><a href=".\numbers.html">Генератор чисел</a></button>
+      <button class="menu"><a href=".\everything.html">Генератор всего</a></button>
+      <button class="menu"><a href=".\shedule.html">Генератор расписания</a></button>
+      <button class="menu"><a href=".\form.html">Форма</a></button>
+    </p>
+  </div>
+
+  <div id="main_content">
+    <div id="animate" script="move()" class="background"></div>
+    <script>
+      move();
+    </script>
+
+    <div id="headline">
+      <h1>
+        <b>Добро пожаловать</b>
+      </h1>
     </div>
+
     <div>
-        <div>
-            <h2>
-                Что здесь будет?
-            </h2>
-            <p>
-                В <em><u>скором времени</u></em> здесь будут какие-нибудь генераторы.
-            </p>
-            <blockquote cite="https://yandex.ru/lab/yalm/share?id=5e6d340a71657a7bae0333d4c34c1db1c4b50316&style=8">
-                <i>"Короче, Рандом - это случайное число, которое генерирует генератор случайных чисел"</i>
-                <p align="right"><a href="https://yandex.ru/lab/yalm?style=8">Балабола</a></p>
-            </blockquote>
-        </div>
-        <div>
-            <h3>
-                А можно как-нибудь по конкретнее?
-            </h3>
-            <p>
-                Ну типо здесь можно будет нажать на кнопку и получить что-нибудь рандомное.
-            </p>
-        </div>
-        <div>
-            <h2>
-                Да кто такой этот ваш рандом вообще?
-            </h2>
-            <p>
-                <cite>"Генерация случайных чисел — процесс, который с помощью устройства генерирует последовательность чисел или символов,
-                которая может быть предсказана разумным образом только на основании случайности. Генераторы случайных чисел подразделяются
-                на «аппаратные генераторы случайных чисел» (<b>HRNGS</b>), которые генерируют случайные числа в зависимости от текущего значения
-                какого-либо атрибута физической среды, который практически невозможно смоделировать при текущем уровне знаний, и генераторы
-                псевдослучайных чисел (<b>PRNGS</b>), которые генерируют числа, которые выглядят случайными, но на самом деле являются детерминированными
-                и могут быть воспроизведены, если известна модель (шаблон), на основании которой работает генератор псевдослучайных чисел"</cite>
-            </p>
-            <p>
-                Вот это и есть <strong>рандом</strong>.
-            </p>
-            <p> В основном это не создание чего-либо нового, как делают нейронные сети,
-                а либо выбор из списка либо соединение нескольких элементов из разных
-                списков в соответсвии с алгоритмом</p>
-                <br>
-        </div>
-        <div>
-            <ol type="A">
-              <li> -a
-              <li> -b
-              <li> <ol type="a">
-                    <li> -a
-                    <li> -b
-                    </ol>
-            </ol>
+      <div>
+        <h2>
+          Что здесь будет?
+        </h2>
+        <p>
+          В <em><u>скором времени</u></em> здесь будут какие-нибудь генераторы.
+        </p>
+        <article>
+          <blockquote cite="https://yandex.ru/lab/yalm/share?id=5e6d340a71657a7bae0333d4c34c1db1c4b50316&style=8">
+            <i>"Короче, Рандом - это случайное число, которое генерирует генератор случайных чисел"</i>
+            <p align="right"><a href="https://yandex.ru/lab/yalm?style=8">Балабола</a></p>
+          </blockquote>
+        </article>
+      </div>
+      <div>
+        <h3>
+          А можно как-нибудь по конкретнее?
+        </h3>
+        <p>
+          Ну типо здесь можно будет нажать на кнопку и получить что-нибудь рандомное.
+        </p>
+      </div>
+      <div>
+        <h2>
+          Да кто такой этот ваш рандом вообще?
+        </h2>
+        <p>
+          <img src="space.png" id="space">
+          <cite>"Генерация случайных чисел — процесс, который с помощью устройства генерирует последовательность чисел или символов,
+            которая может быть предсказана разумным образом только на основании случайности. Генераторы случайных чисел подразделяются
+            на «аппаратные генераторы случайных чисел» (<b>HRNGS</b>), которые генерируют случайные числа в зависимости от текущего значения
+            какого-либо атрибута физической среды, который практически невозможно смоделировать при текущем уровне знаний, и генераторы
+            псевдослучайных чисел (<b>PRNGS</b>), которые генерируют числа, которые выглядят случайными, но на самом деле являются детерминированными
+            и могут быть воспроизведены, если известна модель (шаблон), на основании которой работает генератор псевдослучайных чисел"</cite>
+        </p>
+        <p>
+          Вот это и есть <strong>рандом</strong>.
+        </p>
+        <p> В основном это не создание чего-либо нового, как делают нейронные сети,
+          а либо выбор из списка либо соединение нескольких элементов из разных
+          списков в соответсвии с алгоритмом
+        </p>
+        <br>
+      </div>
+      <section>
+        <h2>Секция со списками</h2>
+          <ol type="A">
+            <li> -a
+            <li> -b
+            <li>
+              <ol type="a">
+                <li> -a
+                <li> -b
+              </ol>
+          </ol>
           <dl>
-          <dt>Термин 1</dt>
-          <dd> Описание термина 1</dd>
+            <dt>Термин 1</dt>
+            <dd> Описание термина 1</dd>
 
-          <dt>Термин 1</dt>
-          <dd> Описание термина 1</dd>
+            <dt>Термин 1</dt>
+            <dd> Описание термина 1</dd>
 
-          <dt>Термин 1</dt>
-          <dd> Описание термина 1</dd>
+            <dt>Термин 1</dt>
+            <dd> Описание термина 1</dd>
 
-          <dt>Термин 1</dt>
-          <dd> Описание термина 1</dd>
+            <dt>Термин 1</dt>
+            <dd> Описание термина 1</dd>
 
-          <dt>Термин 1</dt>
-          <dd> Описание термина 1</dd>
-
-          <p><img src="https://www.i-igrushki.ru/upload/medialibrary/d7f/mv95qjxtg3ce1z27i2bkcgekumyoppwg.jpg"
-          height="100"
-          width="170"
-          alt="Игральные кости"></p>
-
-          <p><img src="Random.png" usemap="#shapes" height="100" width="100">
-          <map name="shapes">
-            <area shape="polygon" coords="0,0,0,50,50,0" href="https://vk.com/apeir">
-            <area shape="rectangle" coords="50,50,100,100" href="https://vk.com/reapion">
-            <area shape="circle" coords="100,0,20" href="https://www.mirea.ru/eventspage/"></p>
-
-
-        </div>
-        <div>
-            <br>
-            <pre>Липпо Дмитрий ИКБО-<sup>03</sup>-<sub>21</sub></pre>
-
-            <a href="tel:89163191418">89163191418</a>
-
-            <br>
-            <a href="dima.lippo@bk.ru">dima.lippo@bk.ru</a>
-        </div>
+            <dt>Термин 1</dt>
+            <dd> Описание термина 1</dd>
+          </dl>
+      </section>
+      <p><img src="https://www.i-igrushki.ru/upload/medialibrary/d7f/mv95qjxtg3ce1z27i2bkcgekumyoppwg.jpg" id="cubes"></p>
+      <p>
+        <img src="Random.png" usemap="#shapes" id="box" height="100" width="100">
+        <map name="shapes">
+          <area shape="polygon" coords="0,0,0,50,50,0" href="https://vk.com/apeir">
+          <area shape="rectangle" coords="50,50,100,100" href="https://vk.com/reapion">
+          <area shape="circle" coords="100,0,50" href="https://www.mirea.ru/eventspage/">
+        </map>
+      </p>
     </div>
+  </div>
 
 </body>
+
+<footer>
+  <pre>Липпо Дмитрий ИКБО-<sup>03</sup>-<sub>21</sub></pre>
+  <address>
+    <a href=" tel:89163191418">89163191418</a><br>
+    <a href="dima.lippo@bk.ru">dima.lippo@bk.ru</a>
+  </address>
+</footer>
