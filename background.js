@@ -4,18 +4,11 @@ function move() {
   var posy = 0;
   var id = setInterval(frame, 500);
 
+  function frame() {
+    posx = (Math.random() * (window.innerWidth));
+    posy = (Math.random() * (window.innerHeight));
+    elem.style.top = posy + 'px';
+    elem.style.left = posx + 'px';
+  }
+}
 
-function frame() {
-  posx = (Math.random() * (window.innerWidth - 0) + 0);
-  posy = (Math.random() * (window.innerHeight - 0) + 0);
-  elem.style.top = posy + 'px';
-  elem.style.left = posx + 'px';
-}
-}
-
-function newR() {
-  alert("newR");
-  var elem = document.getElementById("container");
-  let div = elem.createElement("div");
-  div.id = "animate";
-}

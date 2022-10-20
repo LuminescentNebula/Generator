@@ -8,31 +8,31 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="background.js"></script>
+  <script src="form_generator.js"></script>
   <title>Форма</title>
 </head>
 
 <body>
-  <div id="header">
-    <aside>
-      <p>
-        <img src="bird.svg" height="100px" />
-      </p>
-    </aside>
+  <div class="header">
+  <aside id="logo">
     <p>
-      <button class="menu"><a href=".\names.html">Генератор имён</a></button>
-      <button class="menu"><a href=".\numbers.html">Генератор чисел</a></button>
-      <button class="menu"><a href=".\everything.html">Генератор всего</a></button>
-      <button class="menu"><a href=".\shedule.html">Генератор расписания</a></button>
-      <button class="menu"><a href=".\form.html">Форма</a></button>
+      <img src="bird.svg" height="100px" />
     </p>
-  </div>
-
-  <div id="main_content">
+  </aside>
+  <p class="menu">
+    <button><a href=".\names.html">Генератор имён</a></button>
+    <button><a href=".\numbers.html">Генератор чисел</a></button>
+    <button><a href=".\everything.html">Генератор всего</a></button>
+    <button><a href=".\shedule.html">Генератор расписания</a></button>
+    <button><a href=".\form.html">Форма</a></button>
+  </p>
+</div>
+  <div class="main_content">
     <form action="" method="get">
+      <button type="button" name="button" onclick="generate_person()">Cгенерировать</button>
       <p>
         <label for="name">Имя:</label>
-        <input type="text" name="name" id="name" placeholder="Фамилия Имя">
+        <input type="text" name="name" id="name" required placeholder="Фамилия Имя">
       </p>
       <p>
         <label for="email">Почта:</label>
@@ -40,7 +40,7 @@
       </p>
       <p>
         <label for="tel">Телефон:</label>
-        <input type="tel" name="tel" id="tel" placeholder="+7 999 888 77 66">
+        <input type="tel" name="tel" id="tel" placeholder="+7 999 999 99 99">
       </p>
       <p>
         <label for="birthday">Дата рождения:</label>
@@ -53,11 +53,42 @@
       </p>
       <p>
         <label for="photo">Фото:</label>
-        <input type="file" name="photo" id="photo" placeholder="Random.png">
+        <input type="file" name="photo" id="photo">
       </p>
       <p>
         <label for="password">Пароль:</label>
         <input type="password" name="password" id="password">
+      </p>
+      <p>
+        <label for="about">Расскажите о себе:</label>
+        <textarea id="about" name="about" rows="8" cols="30"></textarea>
+      </p>
+      <fieldset>
+        <legend>Число?</legend>
+        <label>
+          <input type="radio" name="answer" value="1">
+          1
+        </label>
+        <label>
+          <input type="radio" name="answer" value="2">
+          2
+        </label>
+        <label>
+          <input type="radio" name="answer" value="3">
+          3
+        </label>
+        <label>
+          <input type="radio" name="answer" value="4">
+          4
+        </label>
+      </fieldset>
+      <p><label for="city">Город:</label>
+        <select name="cars" id="cars" required multiple size="4">
+          <option value="moscow">Москва</option>
+          <option value="!moscow">Не Москва</option>
+          <option value="peter">Санкт-Петербург</option>
+          <option value="!peter">Не Санкт-Петербург</option>
+        </select>
       </p>
       <p>
         <label for="privacy">Согласие на обработку персональных данных</label>
@@ -67,10 +98,7 @@
         <input type="submit">
       </p>
     </form>
-    <iframe src="video.html" width="275" height="275">
-
-    </iframe>
-
+    <iframe src="video.html" width="275" height="275"></iframe>
   </div>
 </body>
 

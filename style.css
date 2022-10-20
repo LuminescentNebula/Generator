@@ -4,14 +4,38 @@
   box-sizing: border-box;
 }
 
-#header{
+.header{
+    display: flex;
+    justify-content: center;
+    wrap-option: wrap;
     position:-webkit-sticky;
     position:sticky;
     top:0;
-    background: url("head_background.png") center top repeat-x;
-    padding: 4px 0px;
-    display: block;
+    background: url("head_background.png") center top repeat;
+    padding: 4px 0;
     height: 120px;
+}
+
+.btn-menu{
+    visibility: hidden;
+    background: gold url("menu.png") no-repeat;
+    border: 2px solid firebrick;
+    border-radius: 10px;
+    width: 51px;
+    height: 48px;
+}
+
+@media screen and (max-width: 665px){
+    .header{
+        justify-content: space-between;
+        padding: 0;
+    }
+    .menu{
+        display: none;
+    }
+    .btn-menu{
+        visibility: visible;
+    }
 }
 
 #headline{
@@ -27,7 +51,6 @@ h6 {
   font-weight: normal;
   font-family: "Roboto", sans-serif;
   clear: both;
-  margin: 24px 0;
   margin: 1.714285714rem 0;
   line-height: 1.714285714;
 }
@@ -39,7 +62,11 @@ body {
 }
 
 footer {
-    position: relative;
+    position: static;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
     background-color: rgb(255, 255, 128);
     padding: 0 0 0 0;
 }
@@ -64,7 +91,7 @@ form > p > input:focus{
     background-color: rgb(0, 255, 128);
 }
 
-.menu{
+.menu > button{
     width: 13em;
     height: 5ex;
     background-color: gold;
@@ -76,21 +103,34 @@ form > p > input:focus{
     z-index: 50;
 }
 
-#main_content{
-  padding-top: 10px;
-  padding-left: 50px;
-  padding-right: 50px;
+.menu > button:hover{
+    background-color: bisque;
+}
+c > button:active{
+    background-color: blue;
 }
 
-.menu:hover{
-  background-color: bisque;
+.btn-menu:hover{
+    background-color: bisque;
 }
-.menu:active{
-  background-color: blue;
+
+.main_content{
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 dd+dt{
   background-color: rgb(128, 0, 128);
+}
+
+input{
+  background-color: grey;
+  border-color: yellow;
+}
+
+input::placeholder{
+  color: rgb(20,20,20)
 }
 
 #animate {
@@ -117,3 +157,4 @@ dd+dt{
   float:right;
   margin-right: 1 rem;
 }
+
