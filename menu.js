@@ -1,12 +1,21 @@
-function open_menu() {
-    var x = document.getElementById("menu");
-    var y = document.getElementById("header");
-    if (x.style.display==="block"){
-        x.style.display="none";
-        y.style.height="120px";
-    } else {
-        x.style.display="block";
-        y.style.height="200px";
-    }
 
+function preventScroll(e){
+    e.preventDefault();
+    e.stopPropagation();
+
+    return false;
+}
+
+const emoticons="😀😃😄😁😆😅😂🤣☺️😊😇🙂🙃😉😌😍🥰😘😗😙😚😋😛😝😜🤪🤨🧐🤓😎🤩🥳😏😒😞😔😟😕🙁☹️😣😖😫😩🥺😢😭😮‍💨😤😠😡🤬🤯😳🥵🥶😱😨😰😥😓🤗🤔🤭🤫🤥😶😶‍🌫️😐😑😬🙄😯😦😧😮😲🥱😴🤤😪😵😵‍💫🤐🥴🤢🤮🤧😷🤒🤕🤑🤠😈👿👹👺🤡💩👻💀☠️👽👾🤖🎃😺😸😹😻😼😽🙀😿😾"
+
+
+function open_menu() {
+    const x = document.getElementsByTagName("header").item(0);
+    if (x.classList.contains("hvr")){
+        x.classList.remove("hvr");
+        x.removeEventListener('wheel', preventScroll);
+    } else {
+        x.classList.add("hvr");
+        x.addEventListener('wheel', preventScroll);
+    }
 }

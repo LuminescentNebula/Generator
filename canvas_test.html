@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<div>Текст</div>
+<canvas id="canvas"></canvas>
+<script>
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function demo() {
+        const canvas = document.getElementById("canvas")
+        canvas.width =200;
+        canvas.height=200;
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = "green";
+        for (let j=0;j<20;j+=10) {
+            if (ctx.fillStyle==="green") {
+                ctx.fillStyle = "red";
+            } else {
+                ctx.fillStyle = "green";
+            }
+            for (let i = 0; i < 200; i++) {
+                await sleep(10);
+                ctx.fillRect(i, j, i + 1, j+10);
+            }
+        }
+    }
+
+    demo();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    wrap-option: wrap;
+    position:-webkit-sticky;
+    position:sticky;
+    top:0;
+    background: url("resources/head_background.png") center top repeat;
+    padding: 4px 0;
+    height: 120px;
+}
+
+.btn-menu{
+    visibility: hidden;
+    background: gold url("resources/menu.png") no-repeat;
+    background-size: 45px 45px;
+    border: 2px solid firebrick;
+    border-radius: 10px;
+    width: 45px;
+    height: 45px;
+    position:-webkit-sticky;
+    position:sticky;
+    top:0;
+    right:0;
+    transform: rotate(0);
+}
+
+footer {
+    position: static;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 128);
+    padding: 0 0 0 0;
+}
+
+aside {
+    float: right;
+    margin: 0;
+    padding: 0;
+}
+
+.menu > li{
+    width: 13em;
+    height: 5ex;
+    background-color: gold;
+    border: 2px solid firebrick;
+    border-radius: 10px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    z-index: 50;
+    flex-direction: row;
+    display: inline-flex;
+    align-items: stretch;
+    -webkit-align-items: center;
+}
+
+.menu > li > a{
+    width: inherit;
+    text-align: center;
+}
+
+.menu > li:hover{
+    background-color: bisque;
+}
+.menu > li:active{
+    background-color: blue;
+}
+.btn-menu:hover{
+    background-color: bisque;
+}
+
+@media screen and (max-width: 827px){
+    header{
+        padding: 4px 0;
+        justify-content: space-between;
+    }
+    .hvr{
+        visibility: visible;
+    }
+    header.hvr{
+        height: 100vh;
+        position: absolute;
+        background: rgba(120,121,255,0.51);
+    }
+    header.hvr > .menu{
+        visibility: visible;
+    }
+    header.hvr > .btn-menu{
+        transform: rotate(90deg);
+        transition: 1s;
+    }
+    header.hvr > .logo{
+        display: none;
+    }
+    .menu{
+        width: 100vw;
+        visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .btn-menu{
+        visibility: visible;
+    }
+    .menu >li{
+        width: 15em;
+    }
+    .menu > li > a:before{
+        /*TODO: Random emoticons*/
+        content: "😀";
+    }
+    .menu >li>a:after{
+        content: "🥳";
+    }
+}
