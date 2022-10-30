@@ -4,15 +4,15 @@
 <head>
   <link rel="stylesheet" href="style.css" type="text/css" media="all">
   <link rel="stylesheet" href="template.css" type="text/css" media="all">
-  <link rel="stylesheet" href="everything.css" type="text/css" media="all">
+  <link rel="stylesheet" href="canvas.css" type="text/css" media="all" >
   <script src="menu.js"></script>
   <link rel="icon" type="image/svg" href="resources/bird.svg">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="everything.js"></script>
   <title>Липпо ДЗ</title>
+  <script src="chaos.js" defer></script>
 </head>
 
 <body>
@@ -33,34 +33,20 @@
   </ul>
   <button class="btn-menu" onclick="open_menu()"></button>
 </header>
-  <div class="block-random">
-    <div id="number">
-      <div id="number-output"></div>
-      <a onclick="generate_number()" class="btn-1 btn">Число</a>
+  <div class="chaos-canvas">
+    <canvas id="chaos" width="500" height="500" ></canvas>
+    <div>
+      <p><span id="value">3</span></p>
+      <input id="dots" type="range" min="3" max="4" value="3">
     </div>
-    <div id="color">
-      <div id="color-output"></div>
-      <a onclick="generate_color()" class="color-btn btn"><span>Цвет</span><span>Наведи!</span></a>
-    </div>
-    <div id="word">
-      <div id="word-output"></div>
-      <a class="stripes btn">3</a>
-    </div>
-    <div id="dices">
-      <div id="dices-output"></div>
-      <a class="btn-4 btn">4</a>
-    </div>
-    <div id="country">
-      <div id="country-output"></div>
-      <a class="btn-5 btn">5</a>
-    </div>
+    <button onclick="start()">Начать</button>
   </div>
 </body>
 
 <footer>
   <pre>Липпо Дмитрий ИКБО-<sup>03</sup>-<sub>21</sub></pre>
   <address>
-    <a href=" tel:89163191418">89163191418</a><br>
+    <a href="tel:89163191418">89163191418</a><br>
     <a href="dima.lippo@bk.ru">dima.lippo@bk.ru</a>
   </address>
 </footer>
