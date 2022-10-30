@@ -22,11 +22,11 @@ function start(){
     if (dots===3){
         dotsX=[50,250,450];
         dotsY=[450,50,450];
-        mod=0.5
+        mod=0.5;
     } else if (dots===4){
         dotsX=[50,450,50,450];
         dotsY=[50,50,450,450];
-        mod=0.51
+        mod=0.51;
     }
     for (let i=0;i<dots;i++){
         ctx.fillRect(dotsX[i], dotsY[i], 2, 2);
