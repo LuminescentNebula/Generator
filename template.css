@@ -79,7 +79,7 @@ aside {
     background-color: bisque;
 }
 
-@media screen and (max-width: 827px){
+@media screen and (max-width: 1052px){
     header{
         padding: 4px 0;
         justify-content: space-between;

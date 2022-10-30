@@ -33,3 +33,7 @@ function generate_color() {
     document.getElementById("color-output").textContent = color;
     document.getElementById("color-output").style.backgroundColor=color;
 }
+//TODO: Генератор слов
+//TODO: Генератор букв
+//TODO: Что-нибудь с API
+//TODO: Генератор сокращений API/LASER/и т.д.

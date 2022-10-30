@@ -5,7 +5,7 @@ function generate_person() {
     const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
     temp = Math.ceil((Math.random() * (10) + 1));
     for (let i =0;i<temp;i++){
-        data+=characters.at(Math.ceil((Math.random() * (characters.length))));
+        data+=characters.at(Math.ceil((Math.random() * (characters.length-1))));
     }
     data+="@";
     temp = Math.ceil((Math.random() * (5) + 1));
@@ -35,7 +35,13 @@ function generate_person() {
     if (temp<10) data+="0";
     data+=temp;
     data+="-";
-    temp = Math.ceil((Math.random() * 30));
+    if (temp===1||temp===3||temp===5||temp===7||temp===8||temp===10||temp===12){
+        temp = Math.ceil((Math.random() * 31));
+    } else if (temp===4||temp===6||temp===9||temp===11){
+        temp = Math.ceil((Math.random() * 30));
+    }else if (temp===2) {
+        temp = Math.ceil((Math.random() * 28));
+    }
     if (temp<10) data+="0";
     data+=temp;
 

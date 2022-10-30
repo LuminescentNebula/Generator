@@ -63,32 +63,168 @@ input::placeholder{
   z-index: -100;
 }
 
-#cubes {
-  height: 100px;
-  width: 170px;
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 10;
-}
-
 #space{
   height: 100px;
   width: 100px;
   float:right;
-  margin-right: 1 rem;
+  margin-right: 15px;
 }
 
 .gallery{
   width: 100vw;
   display: flex;
+  justify-content: center;
   align-content: flex-start;
   flex-wrap: wrap;
 }
-
-.gallery > img{
+.gallery > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.gallery > div > img {
+  position: relative;
   padding: 5px;
   width: 256px;
   height: max-content;
   display: block;
+  z-index: -2;
+}
+.gallery > div > div {
+  display: flex;
+  position: absolute;
+  width: 256px;
+  height: 256px;
+  color: white;
+
+  flex-direction: column-reverse;
+  align-content: flex-end;
+  align-items: center;
+  padding: 5px;
+
+  visibility: hidden;
+}
+.gallery >div>div>a{
+  background: #55701d;
+  border-radius: 5px;
+}
+.gallery >div>div>a:after{
+  content: "-";
+}
+.gallery >div>div>a:before{
+  content: "-";
+}
+.gallery > div:hover >div  {
+  visibility: visible;
+
+  -webkit-box-shadow: 0px -48px 59px 54px rgba(0, 255, 86, 0.7) inset;
+  -moz-box-shadow: 0px -48px 59px 54px rgba(0, 255, 86, 0.7) inset;
+  box-shadow: 0px -48px 59px 54px rgba(0, 255, 86, 0.7) inset;
+}
+
+
+.notification.clicked{
+  width: 20vw;
+  height: 30vh;
+  transition: all 200ms ease;
+  margin-right: 5vw;
+  left: 75vw;
+}
+.notification.clicked > .n-head{
+  background: aqua;
+}
+.notification.clicked > .n-body{
+  display: flex;
+}
+.notification{
+  transition: all 200ms ease;
+  border: darkblue;
+  position: fixed;
+  position: -ms-device-fixed;
+  bottom: 5vh;
+  height: 5vh;
+  width: 5vh;
+  right: 5vw;
+  z-index: 50;
+}
+.n-head{
+  background: transparent;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 5vh;
+  display: flex;
+  justify-content: right;
+}
+.n-body {
+  display: none;
+  height: 25vh;
+  width: inherit;
+}
+.n-head > button{
+  background: url("resources/Random.png") no-repeat;
+  background-size: 4.7vh;
+  border: transparent;
+  aspect-ratio: 1/1;
+  height: inherit;
+  margin: 5px;
+}
+.n-body >ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
+  background: yellow;
+  list-style: none;
+  width: inherit;
+  height: inherit;
+  margin-top: 0;
+  padding-inline-start: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.n-body > ul > li{
+  background:  sienna;
+  border: 2px darkblue;
+  border-radius: 5px;
+  margin: 5px;
+  text-align: center;
+}
+.n-body > ul > li:hover{
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+}
+
+.video{
+  background: #55701d;
+  width:300px;
+  height:300px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.video > video{
+  position: relative;
+}
+.video::before {
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "СЛУЧАЙНОЕ ВИДЕО";
+  color: white;
+  border-radius: 25px;
+  text-shadow: black;
+  position: absolute;
+  width: 80%;
+  height: 50%;
+  background: rgba(118, 74, 188, 0.3);
+  z-index: 2;
+  transform: translateX(-30px);
+  transition: all 0.2s ease;
+}
+.video:hover::before{
+  visibility: visible;
+  transform: translateX(0px);
 }

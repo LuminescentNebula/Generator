@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="style.css" type="text/css" media="all">
   <link rel="stylesheet" href="template.css" type="text/css" media="all">
   <script src="menu.js"></script>
+  <script src="notification.js"></script>
   <link rel="icon" type="image/svg" href="resources/bird.svg">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
   <meta charset="UTF-8">
@@ -17,8 +18,11 @@
 <body>
 <header>
   <aside class="logo">
-    <p class="logo">
-      <img src="resources/bird.svg" height="100px" />
+    <p class="logo" >
+      <img src="resources/bird.svg" height="100px"  usemap="#logo"/>
+      <map name="logo">
+        <area shape="rectangle" coords="0,0,100,100" href="index.html">
+      </map>
     </p>
   </aside>
   <ul class="menu">
@@ -27,10 +31,12 @@
     <li><a href=".\everything.html">Генератор всего</a></li>
     <li><a href=".\shedule.html">Генератор расписания</a></li>
     <li><a href=".\form.html">Форма</a></li>
+    <li><a href=".\gallery.html">Галерея</a></li>
+    <li><a href=".\chaos.html">Игра хаоса</a></li>
   </ul>
   <button class="btn-menu" onclick="open_menu()"></button>
 </header>
-  <div class="main_content">
+<div class="main_content">
     <div id="headline">
       <h1>
         <b>Добро пожаловать</b>
@@ -113,7 +119,6 @@
               <dd> Описание термина 1</dd>
             </dl>
         </section>
-        <p><img src="https://www.i-igrushki.ru/upload/medialibrary/d7f/mv95qjxtg3ce1z27i2bkcgekumyoppwg.jpg" id="cubes"></p>
         <p>
           <img src="resources/Random.png" usemap="#shapes" id="box" height="100" width="100">
           <map name="shapes">
@@ -125,7 +130,19 @@
       </div>
     </div>
 </body>
+<div class="notification">
+  <div class="n-body">
+    <ul>
+      <li>First</li>
+      <li>Second</li>
+      <li>Third</li>
+    </ul>
+  </div>
+  <div class="n-head">
+    <button onclick="n_click()"></button>
+  </div>
 
+</div>
 <footer>
   <pre>Липпо Дмитрий ИКБО-<sup>03</sup>-<sub>21</sub></pre>
   <address>
