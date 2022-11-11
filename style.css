@@ -1,6 +1,3 @@
-#headline {
-    text-align-last: center;
-}
 
 h1,
 h2,
@@ -28,11 +25,56 @@ button > a:visited {
 }
 
 .main_content {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(3, calc(95vw / 3));
     position: relative;
     padding-top: 10px;
     padding-left: 50px;
     padding-right: 50px;
 }
+section{
+    grid-row-start: 3 span;
+    grid-row-end: auto;
+}
+
+.main_content > div:not(#headline) {
+    grid-column: 2;
+}
+
+
+#headline {
+    text-orientation: upright;
+    writing-mode: vertical-rl;
+    text-align-last: center;
+    grid-row-start: 3 span;
+    grid-row-end: auto;
+}
+
+
+
+
+@media screen and (max-width: 1000px) {
+    .main_content {
+        grid-template-columns: repeat(2, calc(95vw / 2));
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .main_content {
+        grid-template-columns: 95vw;
+    }
+    #headline {
+        text-orientation: unset;
+        writing-mode: horizontal-tb;
+        text-align-last: center;
+        grid-row-start: 3 span;
+        grid-row-end: auto;
+    }
+}
+
 
 dd + dt {
     background-color: rgb(128, 0, 128);

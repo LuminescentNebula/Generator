@@ -5,8 +5,8 @@
 
     display: grid;
 
-    row-gap: 0.5rem;
-    column-gap: 0.5rem;
+    row-gap: 0.1vh;
+    column-gap: 0.1vw;
 
     grid-template-columns: repeat(18, 1fr);
     grid-template-rows: repeat(5, max-content);
@@ -40,7 +40,23 @@
     font-size: 100%;
     text-align: center;
     display: flex;
+    overflow-wrap: anywhere;
     justify-content: center;
     align-items: center;
     border: white 2px solid;
+}
+
+@media screen and (max-width: 500px) {
+    .legend{
+        grid-column: span 2;
+    }
+    .headline{
+        grid-column: span 2;
+    }
+    .grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .a {
+        width: calc(100vw / 2);
+    }
 }

@@ -45,38 +45,38 @@
         <div class="square"></div>
     </div>
     <form action="" method="get">
-        <button type="button" name="button" onclick="generate_person()">Cгенерировать</button>
+        <button id="generate" type="button" name="button" onclick="generate_person()">Cгенерировать</button>
         <p>
-            <label for="name">Имя:</label>
+            <label for="name">Имя:</label><br>
             <input type="text" name="name" id="name" required placeholder="Фамилия Имя">
         </p>
         <p>
-            <label for="email">Почта:</label>
+            <label for="email">Почта:</label><br>
             <input type="email" name="email" id="email" placeholder="email@mail.mail">
         </p>
         <p>
-            <label for="tel">Телефон:</label>
+            <label for="tel">Телефон:</label><br>
             <input type="tel" name="tel" id="tel" placeholder="+7 999 999 99 99">
         </p>
         <p>
-            <label for="birthday">Дата рождения:</label>
+            <label for="birthday">Дата рождения:</label><br>
             <input type="date" name="birthday" id="birthday" placeholder="01.01.2000">
         </p>
         <p>
-            <label for="gender">Пол:</label>
+            <label for="gender">Пол:</label><br>
             <input type="radio" name="gender" id="male">М
             <input type="radio" name="gender" id="female">Ж
         </p>
         <p>
-            <label for="photo">Фото:</label>
+            <label for="photo">Фото:</label><br>
             <input type="file" name="photo" id="photo">
         </p>
         <p>
-            <label for="password">Пароль:</label>
+            <label for="password">Пароль:</label><br>
             <input type="password" name="password" id="password">
         </p>
-        <p>
-            <label for="about">Расскажите о себе:</label>
+        <p id="about-p">
+            <label for="about">Расскажите о себе:</label><br>
             <textarea id="about" name="about" rows="8" cols="30"></textarea>
         </p>
         <fieldset>
@@ -98,7 +98,7 @@
                 4
             </label>
         </fieldset>
-        <p><label for="city">Город:</label>
+        <p><label for="city">Город:</label><br>
             <select name="cars" id="cars" required multiple size="4">
                 <option value="moscow">Москва</option>
                 <option value="!moscow">Не Москва</option>
@@ -107,7 +107,7 @@
             </select>
         </p>
         <p>
-            <label for="privacy">Согласие на обработку персональных данных</label>
+            <label for="privacy">Согласие на обработку персональных данных</label><br>
             <input type="checkbox" name="privacy" id="privacy" checked>
         </p>
         <p>
