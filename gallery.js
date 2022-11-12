@@ -41,3 +41,23 @@ function opacity() {
         })
     }
 }
+
+function truncate(str, maxlength){
+    if (str.length>maxlength){
+        str=str.slice(0,maxlength)+"..."
+    }
+    return str
+}
+
+dives = document.querySelectorAll(".glass-gallery>div>div")
+trunc(dives)
+dives = document.querySelectorAll(".second-glass-gallery>div>div")
+trunc(dives)
+dives = document.querySelectorAll(".third-glass-gallery>div>div")
+trunc(dives)
+function trunc(divs) {
+    for (i = 0; i < divs.length; i++) {
+        divs.item(i).textContent = truncate(divs.item(i).textContent, 100)
+    }
+}
+
