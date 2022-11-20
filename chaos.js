@@ -23,14 +23,14 @@ function start(){
         dotsX=[50,250,450];
         dotsY=[450,50,450];
         mod=0.5;
-    } else if (dots===4){
-        dotsX=[50,450,50,450];
-        dotsY=[50,50,450,450];
-        mod=0.51;
-    }  else if (dots===4){
-        dotsX=[50,450,50,450];
-        dotsY=[50,50,450,450];
-        mod=0.51;
+    } else if (dots===4) {
+        dotsX = [50, 450, 50, 450];
+        dotsY = [50, 50, 450, 450];
+        mod = 0.51;
+    } else if (dots===5) {
+        dotsX = [485, 250, 15.701, 105.597, 395.939];
+        dotsY = [180, 10, 180.965, 456.623, 456.031];
+        mod = 0.6;
     }
     for (let i=0;i<dots;i++){
         ctx.fillRect(dotsX[i], dotsY[i], 2, 2);

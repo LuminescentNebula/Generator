@@ -3,8 +3,10 @@
 
 <head>
     <link rel="stylesheet" href="style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="maze.css" type="text/css" media="all">
     <link rel="stylesheet" href="template.css" type="text/css" media="all">
     <script src="menu.js"></script>
+    <script src="maze.js" defer></script>
     <link rel="icon" type="image/svg" href="resources/bird.svg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <meta charset="UTF-8">
@@ -35,27 +37,17 @@
     </ul>
     <button class="btn-menu" onclick="open_menu()"></button>
 </header>
+<div class="canvas">
+    <div>Визуализированная генерация случайного лабиринта с помощью бэктрекинга(поиска с возвратом)
+        <br>
+        <button id="calculate" onclick="reload()">Сгенерировать</button>
+    </div>
+    <canvas id="canvas"></canvas>
+</div>
 </body>
 
 <footer>
     <pre>Липпо Дмитрий ИКБО-<sup>03</sup>-<sub>21</sub></pre>
-    <div class="media-box">
-        <div class="media">
-            <div class="icon"></div>
-        </div>
-        <div class="media">
-            <div class="icon"></div>
-        </div>
-        <div class="media">
-            <div class="icon"></div>
-        </div>
-        <div class="media">
-            <div class="icon"></div>
-        </div>
-        <div class="media">
-            <div class="icon"></div>
-        </div>
-    </div>
     <address>
         <a href=" tel:89163191418">89163191418</a><br>
         <a href="dima.lippo@bk.ru">dima.lippo@bk.ru</a>

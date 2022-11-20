@@ -9,9 +9,41 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: row;
+}
+.chaos-canvas > div > div{
+    display: flex;
     flex-direction: column;
+    width: 25em;
 }
 .chaos-canvas > div{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.chaos-canvas > div > div > div{
     display: flex;
     flex-direction: row;
+}
+.chaos-canvas > div > div > div >p >span{
+    height: 5ex;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    z-index: 50;
+    align-items: stretch;
+    -webkit-align-items: center;
+}
+
+#start{
+    height: 5ex;
+    background-color: gold;
+    border: 2px solid firebrick;
+    border-radius: 10px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    z-index: 50;
+    align-items: stretch;
+    -webkit-align-items: center;
 }

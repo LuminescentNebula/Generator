@@ -62,7 +62,7 @@ function color() {
 
 var bool = false;
 
-var canvas = document.getElementById('canvas');
+var canvas = document.getElementById('maze');
 var ctx = canvas.getContext('2d');
 
 function draw(e) {

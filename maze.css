@@ -1,0 +1,27 @@
+.canvas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-bottom: 10vh;
+    margin-top: 20px;
+}
+.canvas >div{
+    width: 25em;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+
+}
+button{
+    height: 5ex;
+    background-color: gold;
+    border: 2px solid firebrick;
+    border-radius: 10px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    z-index: 50;
+    align-items: stretch;
+    -webkit-align-items: center;
+}
