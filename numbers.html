@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="template.css" type="text/css" media="all">
+    <link rel="stylesheet" href="numbers.css" type="text/css" media="all">
+    <script src="menu.js"></script>
+    <link rel="icon" type="image/svg" href="resources/bird.svg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="numbers.js"></script>
+    <title>Липпо ДЗ</title>
+</head>
+
+<body>
+<header>
+    <aside class="logo">
+        <p class="logo" >
+            <img src="resources/bird.svg" height="100px"  usemap="#logo"/>
+            <map name="logo">
+                <area shape="rectangle" coords="0,0,100,100" href="index.html">
+            </map>
+        </p>
+    </aside>
+    <ul class="menu">
+        <li><a href=".\numbers.html">Числа</a></li>
+        <li><a href=".\everything.html">Всё</a></li>
+        <li><a href=".\shedule.html">Расписание</a></li>
+        <li><a href=".\form.html">Форма</a></li>
+        <li><a href=".\gallery.html">Галерея</a></li>
+        <li><a href=".\chaos.html">"Хаос"</a></li>
+        <li><a href=".\maze.html">Лабиринт</a></li>
+    </ul>
+    <button class="btn-menu" onclick="open_menu()"></button>
+</header>
+
+<div id="number">
+    <span id="number-output">0</span>
+</div>
+<div id="settings">
+    <p><span id="valuef">От</span>
+    <input class="input" id="from" type="text" value="1">
+    <span id="valuet">до</span>
+    <input class="input" id="to" type="text" value="100"></p>
+    <p><span id="valuet">Сколько:</span>
+    <input class="input" id="many" type="text" value="1"></p>
+    <button id="generate" onclick="number()">Начать</button>
+</div>
+</body>
+<footer>
+    <pre>Липпо Дмитрий ИКБО-<sup>03</sup>-<sub>21</sub></pre>
+    <div class="media-box">
+        <div class="media">
+            <div class="icon">
+                <a href="http://vk.com/reapion"></a>
+            </div>
+        </div>
+    </div>
+    <address>
+        <a href=" tel:89163191418">89163191418</a><br>
+        <a href="dima.lippo@bk.ru">dima.lippo@bk.ru</a>
+    </address>
+</footer>

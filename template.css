@@ -16,6 +16,9 @@ header{
     padding: 4px 0;
     height: 120px;
     z-index: 100;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
 .btn-menu{
@@ -26,14 +29,10 @@ header{
     border-radius: 10px;
     width: 45px;
     height: 45px;
-    position:-webkit-sticky;
-    position:sticky;
     top:0;
     right:0;
     transform: rotate(0);
 }
-
-
 
 aside {
     float: right;
@@ -74,11 +73,18 @@ aside {
 
 @media screen and (max-width: 1052px){
     header{
+        position: static;
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+    header{
         padding: 4px 0;
         justify-content: space-between;
     }
     .hvr{
         visibility: visible;
+
     }
     header.hvr{
         height: 100vh;
@@ -87,6 +93,7 @@ aside {
     }
     header.hvr > .menu{
         visibility: visible;
+        display: flex;
     }
     header.hvr > .btn-menu{
         transform: rotate(90deg);
@@ -96,12 +103,13 @@ aside {
         display: none;
     }
     .menu{
-        width: 100vw;
-        visibility: hidden;
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+        width: 100vw;
+        visibility: hidden;
+
     }
     .btn-menu{
         visibility: visible;
@@ -117,7 +125,13 @@ aside {
         content: "🥳";
     }
 }
-
+@media screen and (max-height: 400px) {
+    .menu {
+        display: grid;
+        grid-template-columns: 15em 15em;
+        grid-gap: 2em;
+    }
+}
 
 footer {
     display: flex;
@@ -133,21 +147,11 @@ footer {
 
 .media-box{
     display: grid;
-    grid-template-columns:repeat(5,max-content) ;
+    grid-template-columns:repeat(3,max-content) ;
     flex-direction: row;
 }
 
-@media screen and (min-width: 769px) and (max-width: 1000px) {
-    .media-box{
-        grid-template-rows:repeat(2,max-content) ;
-        grid-template-columns:repeat(3,max-content) ;
-    }
-}
-@media screen and (min-width: 320px) and (max-width: 768px) {
-    .media-box{
-        grid-template-rows:repeat(5,max-content) ;
-        grid-template-columns:repeat(1,max-content) ;
-    }
+@media screen and  (max-width: 768px) {
     footer{
         flex-direction: column;
     }

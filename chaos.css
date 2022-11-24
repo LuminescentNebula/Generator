@@ -11,6 +11,12 @@
     justify-content: center;
     flex-direction: row;
 }
+@media screen and (max-width: 1052px){
+    .chaos-canvas{
+        flex-direction: column;
+    }
+}
+
 .chaos-canvas > div > div{
     display: flex;
     flex-direction: column;
