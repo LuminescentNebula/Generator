@@ -13,13 +13,14 @@ async function reload() {
     canvas.width = 500;
     canvas.height = 500;
     ctx.fillRect(0, 0, canvas.width, canvas.height)
-    ctx.fillStyle = "red"
+    ctx.fillStyle = "red";
     let n = 10
     let x = Math.ceil(Math.random() * canvas.width / n) - 1
     let y = Math.ceil(Math.random() * canvas.height / n) - 1
     console.log(x, y)
     ctx.fillRect(x * n, y * n, n, n)
-    yellow_go_brr(background, n,h);
+    let red=[x,y]
+    yellow_go_brr(background,red, n,h);
 }
 
 function check(b, around, n) {
@@ -33,18 +34,16 @@ function check(b, around, n) {
         b.data.at(n * 4 - 1) === around[3];
 }
 
-async function find(color) {
-
-}
-
-async function yellow_go_brr(background, n, iter) {
+async function yellow_go_brr(background,red, n, iter) {
     let found = false
     let a;
     let b;
     let arr = []
     if (h===iter) {
-        for (x = 0; x < canvas.width; x += n) {
-            for (y = 0; y < canvas.height; y += n) {
+        x=red[0]
+        y=red[1]
+        //for (x = 0; x < canvas.width; x += n) {
+            //for (y = 0; y < canvas.height; y += n) {
                 a = ctx.getImageData(x, y, n, n, {colorSpace: "srgb"})
                 if (a.data.at(0) === 255 &&
                     a.data.at(1) === 0 &&
@@ -82,57 +81,68 @@ async function yellow_go_brr(background, n, iter) {
                             console.log("Вниз")
                             ctx.fillRect(x, y, 10, 10 * 2)
                             ctx.fillStyle = "red"
+                            red=[x, y + 10 * 2]
                             ctx.fillRect(x, y + 10 * 2, 10, 10)
                             break;
                         case 2:
                             console.log("Вправо")
                             ctx.fillRect(x, y, 10 * 2, 10)
                             ctx.fillStyle = "red"
+                            red=[x + 10 * 2, y]
                             ctx.fillRect(x + 10 * 2, y, 10, 10)
                             break;
                         case 3:
                             console.log("Вверх")
                             ctx.fillRect(x, y + 10, 10, -10 * 2)
                             ctx.fillStyle = "red"
+                            red=[x, y - 10 * 2]
                             ctx.fillRect(x, y - 10 * 2, 10, 10)
                             break
                         case 4:
                             console.log("Влево")
                             ctx.fillRect(x + 10, y, -10 * 2, 10)
                             ctx.fillStyle = "red"
+                            red=[x - 10 * 2, y]
                             ctx.fillRect(x - 10 * 2, y, 10, 10)
                             break
                     }
                     found = true
-                    break
                 }
-            }
+            //}
             if (found === true) {
                 found = false
-                break
             }
-        }
-        if (arr.length === 0 && await blue_go_brr() === false) {
-            stop()
+       // }
+        if (arr.length === 0) {
+            temp_red=await blue_go_brr(red)
+            if (temp_red===[]) {
+                stop()
+            } else {
+                red=temp_red
+                await sleep(10)
+                yellow_go_brr(background,red, n,iter)
+            }
         } else {
             await sleep(10)
-            yellow_go_brr(background, n,iter)
+            yellow_go_brr(background,red, n,iter)
         }
         stop()
     }
 }
 
-async function blue_go_brr() {
+async function blue_go_brr(red) {
     let background = [255, 255, 0, 255]
     let n = 10
     let x
     let y
     let found = false
     let a;
-    let arr;
+    let arr=[];
     let b;
-    for (x = 0; x < canvas.width; x += n) {
-        for (y = 0; y < canvas.height; y += n) {
+    x=red[0]
+    y=red[1]
+    //for (x = 0; x < canvas.width; x += n) {
+        //for (y = 0; y < canvas.height; y += n) {
             a = ctx.getImageData(x, y, n, n, {colorSpace: "srgb"})
             if (a.data.at(0) === 255 &&
                 a.data.at(1) === 0 &&
@@ -171,39 +181,39 @@ async function blue_go_brr() {
                         console.log("Вниз")
                         ctx.fillRect(x, y, 10, 10 * 2)
                         ctx.fillStyle = "red"
+                        red=[x, y + 10 * 2]
                         ctx.fillRect(x, y + 10 * 2, 10, 10)
                         break;
                     case 2:
                         console.log("Вправо")
                         ctx.fillRect(x, y, 10 * 2, 10)
                         ctx.fillStyle = "red"
+                        red=[x + 10 * 2, y]
                         ctx.fillRect(x + 10 * 2, y, 10, 10)
                         break;
                     case 3:
                         console.log("Вверх")
                         ctx.fillRect(x, y + 10, 10, -10 * 2)
                         ctx.fillStyle = "red"
+                        red=[x, y - 10 * 2]
                         ctx.fillRect(x, y - 10 * 2, 10, 10)
                         break
                     case 4:
                         console.log("Влево")
                         ctx.fillRect(x + 10, y, -10 * 2, 10)
                         ctx.fillStyle = "red"
+                        red=[x - 10 * 2, y]
                         ctx.fillRect(x - 10 * 2, y, 10, 10)
                         break
                 }
-                found = true
-                break
             }
-        }
-        if (found === true) {
-            found = false
-            break
-        }
-    }
+       // }
+    //}
     if (arr.length === 0) {
-        return false
+        return []
     }
+    return red
+
 
 }
 
@@ -211,6 +221,7 @@ canvas.width = 500;
 canvas.height = 500;
 ctx.fillRect(0, 0, canvas.width, canvas.height)
 ctx.fillStyle = "red"
-ctx.fillRect((Math.ceil(Math.random() * canvas.width / 10) - 1) * 10, (Math.ceil(Math.random() * canvas.height / 10) - 1) * 10, 10, 10)
-yellow_go_brr([0, 0, 0, 255], 10,0);
+red=[(Math.ceil(Math.random() * canvas.width / 10) - 1) * 10, (Math.ceil(Math.random() * canvas.height / 10) - 1) * 10]
+ctx.fillRect(red[0],red[1], 10, 10)
+yellow_go_brr([0, 0, 0, 255],red, 10,0);
 

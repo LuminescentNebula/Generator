@@ -27,9 +27,11 @@
     grid-template-columns: repeat(2,15em);
     row-gap: 10px;
 }
-
-.day{
+.weekday{
     width: 418px;
+}
+.day{
+    width: 433px;
     height: 32px;
     background: -webkit-linear-gradient(90deg, #aa92e2,#a6ccf1);
     background: linear-gradient(90deg, #aa92e2,#a6ccf1);
@@ -37,13 +39,16 @@
 .table{
     display: grid;
     margin: 23px;
-    column-gap: 10px;
+    column-gap: 30px;
+    row-gap: 20px;
     grid-template-columns: max-content max-content;
 }
 .table > div > div:not(.day){
+    text-align: center;
+    height: 3.5em;
     font-family: "Roboto", sans-serif;
     display: grid;
-    grid-template-columns: 1em 1em 1fr 1em 12ex 7ex;
+    grid-template-columns: 1em 1em calc(433px - 3em - 19ex) 1em 12ex 7ex;
 }
 .table > div > div>div{
     border: grey 1px solid;
@@ -89,48 +94,59 @@
     grid-column-end: 2;
 }
 .subject1{
+
+    font-size: 10px;
     grid-row-start: 1;
     grid-column-start: 3;
     grid-row-end: 1;
     grid-column-end: 3;
 }
 .subject2{
+    font-size: 10px;
     grid-row-start: 2;
     grid-column-start: 3;
     grid-row-end: 2;
     grid-column-end: 3;
 }
 .type1{
+    font-size: 8px;
+
     grid-row-start: 1;
     grid-column-start: 4;
     grid-row-end: 1;
     grid-column-end: 4;
 }
 .type2{
+    font-size: 8px;
+
     grid-row-start: 2;
     grid-column-start: 4;
     grid-row-end: 2;
     grid-column-end: 4;
 }
 .tutor1{
+    font-size: 10px;
     grid-row-start: 1;
     grid-column-start: 5;
     grid-row-end: 1;
     grid-column-end:5;
 }
 .tutor2{
+    font-size: 10px;
     grid-row-start: 2;
     grid-column-start:5;
     grid-row-end: 2;
     grid-column-end: 5;
 }
 .room1{
+    font-size: 10px;
     grid-row-start: 1;
     grid-column-start:6;
     grid-row-end: 1;
     grid-column-end: 6;
 }
 .room2{
+    font-size: 10px;
     grid-row-start: 2;
     grid-column-start:6;
     grid-row-end: 2;

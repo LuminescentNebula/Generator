@@ -1,4 +1,4 @@
-let arr=[1,2,3,4,5,6,7,8,9]
+let arr=[]
 
 //arr.pop() Последний
 //arr.shift() Первый
@@ -6,14 +6,19 @@ let arr=[1,2,3,4,5,6,7,8,9]
 
 function bin(){
     arr.pop()
+    reload()
 }
-function filter(a,b){
+function filter(){
+    let a=parseInt(document.getElementById("a").value)
+    let b=parseInt(document.getElementById("b").value)
     let newarr=[]
+    console.log(a,b)
     for (let i = 0; i < arr.length; i++) {
         if (arr[i]>=a || arr[i]===b){
             newarr.push(arr[i])
         }
     }
+    document.getElementById("filter-output").textContent=newarr.toString();
 }
 function sort(){
     let sorted=false
@@ -29,7 +34,26 @@ function sort(){
             }
         }
     }
+    reload()
+}
+function add(){
+    arr.push(parseInt(document.getElementById("adding").value))
+    reload()
 }
 
-arr.
-console.log(arr)
+function reload(){
+    x=""
+    for (let i in arr){
+       x+=arr[i]+" "
+    }
+    document.getElementById("output").textContent=x;
+}
+
+let c=0
+function counter(){
+    c=c+1;
+    document.getElementById("counter").textContent=c.toString();
+    timer = setTimeout(counter, 3000);
+}
+counter()
+
