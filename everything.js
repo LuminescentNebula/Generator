@@ -61,7 +61,7 @@ function generate_answer() {
 "Спроси позже",
 "Лучше не рассказывать",
 "Сейчас нельзя предсказать",
-"Сконцентрируйся и спроси опять",
+"Подумай и спроси опять",
 "Даже не думай",
 "Мой ответ — «нет»",
 "По моим данным — «нет»",
@@ -75,7 +75,7 @@ function generate_answer() {
 let first=0;
 let second=0;
 function generate_count() {
-    if (Math.ceil((Math.random() * 2))===1){
+    if (Math.ceil((Math.random()*2))===1){
         first++
     } else{
         second++

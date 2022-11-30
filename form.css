@@ -19,6 +19,7 @@ form {
 @media screen and (max-width: 500px) {
     form {
         display: grid;
+        justify-items: center;
         position: relative;
         margin-bottom: 20px;
         padding: 5px;

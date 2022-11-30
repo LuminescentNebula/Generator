@@ -10,3 +10,213 @@
     height: 100%;
     width: 100%;
 }
+
+button{
+    height: 5ex;
+    background-color: gold;
+    border: 2px solid firebrick;
+    border-radius: 10px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    z-index: 50;
+    align-items: stretch;
+    -webkit-align-items: center;
+}
+
+.schedule{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    padding: 10px;
+}
+
+.top{
+    background: -webkit-linear-gradient(90deg, #aa92e2,#a6ccf1);
+    background: linear-gradient(90deg, #aa92e2,#a6ccf1);
+    color: white;
+    height: 98px;
+    width: 902px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+.top> div{
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 0.05em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.time{
+    font-family: "JetBrains Mono", sans-serif;
+    font-size: 12px;
+    display: grid;
+    column-fill: auto;
+    grid-template-columns: repeat(2,15em);
+    row-gap: 10px;
+}
+.weekday{
+    width: 418px;
+}
+.day{
+    width: 433px;
+    height: 32px;
+    background: -webkit-linear-gradient(90deg, #aa92e2,#a6ccf1);
+    background: linear-gradient(90deg, #aa92e2,#a6ccf1);
+}
+.table{
+    display: grid;
+    margin: 23px;
+    column-gap: 30px;
+    row-gap: 20px;
+    grid-template-columns: max-content max-content;
+}
+.table > div > div:not(.day){
+    text-align: center;
+    height: 3.5em;
+    font-family: "Roboto", sans-serif;
+    display: grid;
+    grid-template-columns: 1em 1em calc(433px - 3em - 19ex) 1em 12ex 7ex;
+}
+.table > div > div>div{
+    border: grey 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.table > div > div>div:nth-child(2n):not(.number) {
+    background: white;
+}
+.table > div > div>div:nth-child(2n+1):not(.number) {
+    background: #f3f6fd;
+}
+.day{
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 1;
+    grid-column-end: 6;
+}
+
+.number{
+    background: white;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 3;
+    grid-column-end: 1;
+}
+.odd1{
+    grid-row-start: 1;
+    grid-column-start: 2;
+    grid-row-end: 1;
+    grid-column-end: 2;
+}
+.odd2{
+    grid-row-start: 2;
+    grid-column-start: 2;
+    grid-row-end: 2;
+    grid-column-end: 2;
+}
+.subject1{
+
+    font-size: 10px;
+    grid-row-start: 1;
+    grid-column-start: 3;
+    grid-row-end: 1;
+    grid-column-end: 3;
+}
+.subject2{
+    font-size: 10px;
+    grid-row-start: 2;
+    grid-column-start: 3;
+    grid-row-end: 2;
+    grid-column-end: 3;
+}
+.type1{
+    font-size: 8px;
+
+    grid-row-start: 1;
+    grid-column-start: 4;
+    grid-row-end: 1;
+    grid-column-end: 4;
+}
+.type2{
+    font-size: 8px;
+
+    grid-row-start: 2;
+    grid-column-start: 4;
+    grid-row-end: 2;
+    grid-column-end: 4;
+}
+.tutor1{
+    font-size: 10px;
+    grid-row-start: 1;
+    grid-column-start: 5;
+    grid-row-end: 1;
+    grid-column-end:5;
+}
+.tutor2{
+    font-size: 10px;
+    grid-row-start: 2;
+    grid-column-start:5;
+    grid-row-end: 2;
+    grid-column-end: 5;
+}
+.room1{
+    font-size: 10px;
+    grid-row-start: 1;
+    grid-column-start:6;
+    grid-row-end: 1;
+    grid-column-end: 6;
+}
+.room2{
+    font-size: 10px;
+    grid-row-start: 2;
+    grid-column-start:6;
+    grid-row-end: 2;
+    grid-column-end: 6;
+}
+
+@media screen and (max-width: 950px) {
+
+    .description{
+        text-align: center;
+    }
+    .table{
+        display: grid;
+        margin: 23px;
+        column-gap: 30px;
+        row-gap: 20px;
+        grid-template-columns: 433px;
+    }
+
+    .top{
+        height: 120px;
+        width: 450px;
+    }
+    .top> div{
+        flex-direction: column;
+    }
+    .time > div:nth-child(2n){
+        text-align: right;
+    }
+
+
+}

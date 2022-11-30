@@ -20,16 +20,16 @@
 <header>
     <aside class="logo">
         <p class="logo" >
-            <img src="resources/bird.svg" height="100px"  usemap="#logo"/>
+            <img src="resources/bird.svg" height="100px"  usemap="#logo" alt="Логотип"/>
             <map name="logo">
-                <area shape="rectangle" coords="0,0,100,100" href="index.html">
+                <area coords="0,0,100,100" href="index.html" alt="Главная">
             </map>
         </p>
     </aside>
     <ul class="menu">
         <li><a href=".\numbers.html">Числа</a></li>
         <li><a href=".\everything.html">Всё</a></li>
-        <li><a href=".\shedule.html">Расписание</a></li>
+        <li><a href=".\schedule.html">Расписание</a></li>
         <li><a href=".\form.html">Форма</a></li>
         <li><a href=".\gallery.html">Галерея</a></li>
         <li><a href=".\chaos.html">"Хаос"</a></li>
@@ -48,22 +48,22 @@
         <button id="generate" type="button" name="button" onclick="generate_person()">Cгенерировать</button>
         <p>
             <label for="name">Имя:</label><br>
-            <input type="text" name="name" id="name" required placeholder="Фамилия Имя">
+            <input type="text" name="name" id="name" required placeholder="Фамилия Имя" maxlength="50">
         </p>
         <p>
             <label for="email">Почта:</label><br>
-            <input type="email" name="email" id="email" placeholder="email@mail.mail">
+            <input type="email" name="email" id="email" placeholder="email@mail.mail"  maxlength="50">
         </p>
         <p>
             <label for="tel">Телефон:</label><br>
-            <input type="tel" name="tel" id="tel" placeholder="+7 999 999 99 99">
+            <input type="tel" name="tel" id="tel" placeholder="+7 999 999 99 99"  maxlength="16">
         </p>
         <p>
             <label for="birthday">Дата рождения:</label><br>
             <input type="date" name="birthday" id="birthday" placeholder="01.01.2000">
         </p>
         <p>
-            <label for="gender">Пол:</label><br>
+            <label>Пол:</label><br>
             <input type="radio" name="gender" id="male">М
             <input type="radio" name="gender" id="female">Ж
         </p>
@@ -73,22 +73,21 @@
         </p>
         <p>
             <label for="password">Пароль:</label><br>
-            <input type="password" name="password" id="password">
+            <input type="password" name="password" id="password" maxlength="25">
         </p>
         <p id="about-p">
             <label for="about">Расскажите о себе:</label><br>
             <textarea id="about" name="about" rows="8" cols="30"></textarea>
         </p>
-        <p><label for="city">Город:</label><br>
-            <select name="cars" id="cars" required multiple size="4">
+        <p><label for="cars">Город:</label><br>
+            <select name="cars" id="cars" required multiple size="1" style="height:4em;">
                 <option value="moscow">Москва</option>
-                <option value="!moscow">Не Москва</option>
                 <option value="peter">Санкт-Петербург</option>
-                <option value="!peter">Не Санкт-Петербург</option>
+                <option value="else">Замкадье</option>
             </select>
         </p>
         <p>
-            <label for="privacy">Согласие на обработку персональных данных</label><br>
+            <label for="privacy"><a style="color: blue;text-decoration: underline blue" onclick="alert('Ваши данные никак не обрабатываются, потому что разраб не разбирался в бэкенде')">Согласие на обработку персональных данных</a></label><br>
             <input type="checkbox" name="privacy" id="privacy" checked>
         </p>
         <p>
@@ -96,24 +95,17 @@
         </p>
     </form>
 </div>
-<div class="video">
-    <video controls width="255" height="255" poster="resources/space.png" autoplay="auto" loop muted>
-        <source src="resources/Looped.mp4" type="video/mp4">
-    </video>
-</div>
 </body>
-
 <footer>
     <pre>Липпо Дмитрий ИКБО-<sup>03</sup>-<sub>21</sub></pre>
     <div class="media-box">
         <div class="media">
-            <div class="icon">
-                <a href="http://vk.com/reapion"></a>
-            </div>
+            <a class="icon" href="https://vk.com/reapion">
+            </a>
         </div>
     </div>
     <address>
-        <a href=" tel:89163191418">89163191418</a><br>
-        <a href="dima.lippo@bk.ru">dima.lippo@bk.ru</a>
+        <a href="tel:89163191418">89163191418</a><br>
+        <a href="email:dima.lippo@bk.ru">dima.lippo@bk.ru</a>
     </address>
 </footer>
