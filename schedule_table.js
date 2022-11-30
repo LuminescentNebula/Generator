@@ -1,4 +1,4 @@
-tutors=["Авдижиян А. Ю.",
+const tutors=["Авдижиян А. Ю.",
     "Аксененкова И. М.",
     "Алпатов А. Н.",
     "Андрианова Е. Г.",
@@ -180,7 +180,7 @@ tutors=["Авдижиян А. Ю.",
     "Пронина Е. Н.",
     "Разумейко Н. В.",
     "Синицын А. В."]
-subjects=["Системы захвата движения и отслеживания",
+const subjects=["Системы захвата движения и отслеживания",
     "Введение в профессиональную деятельность",
     "Информатика",
     "История (история России, всеобщая история)",
@@ -234,29 +234,52 @@ subjects=["Системы захвата движения и отслежива�
     "Дисциплины по выбору БВДВ",
     "Дизайн мобильных приложений",
     "Веб-дизайн"]
-types=["сем","сем","сем","сем","сем","лек","лек","лек","лек","лек","лаб"]
-cabs=["А","Б","В","Г","Д","Е","И"]
-days =document.querySelectorAll(".table > .weekday");
-console.log(days.length)
-document.querySelector(".top > div > b").textContent="Расписание группы ИКБО-"+
-                                                Math.ceil(Math.random()*40).toString().padStart(2, '0')+
-                                                "-"+
-                                        Math.ceil(Math.random()*3+20).toString()
-for (let i = 0; i < days.length; i++) {
-    lessons = days[i].querySelectorAll(".weekday >div:not(.day)")
-    let start = Math.ceil(Math.random()*6)
-    let amount= Math.ceil(Math.random()*6)
-    console.log(start,amount)
-    for (let j = start; j < Math.abs(start-amount)+start,j<6; j++) {
-        lessons[j].querySelector(".subject1").textContent=subjects[Math.ceil(Math.random()*subjects.length)-1]
-        lessons[j].querySelector(".subject2").textContent=subjects[Math.ceil(Math.random()*subjects.length)-1]
-        lessons[j].querySelector(".tutor1").textContent=tutors[Math.ceil(Math.random()*tutors.length)-1]
-        lessons[j].querySelector(".tutor2").textContent=tutors[Math.ceil(Math.random()*tutors.length)-1]
-        lessons[j].querySelector(".type1").textContent=types[Math.ceil(Math.random()*types.length)-1]
-        lessons[j].querySelector(".type2").textContent=types[Math.ceil(Math.random()*types.length)-1]
-        lessons[j].querySelector(".room1").textContent=cabs[Math.ceil(Math.random()*cabs.length)-1]+"-"
-            +(Math.ceil(Math.random()*5)-1).toString()+(Math.ceil(Math.random()*10)-1).toString()+(Math.ceil(Math.random()*10)-1).toString()
-        lessons[j].querySelector(".room2").textContent=cabs[Math.ceil(Math.random()*cabs.length)-1]+"-"
-            +(Math.ceil(Math.random()*5)-1).toString()+(Math.ceil(Math.random()*10)-1).toString()+(Math.ceil(Math.random()*10)-1).toString()
+const types=["сем","сем","сем","сем","сем","лек","лек","лек","лек","лек","лаб"]
+const cabs=["А","Б","В","Г","Д","Е","И"]
+
+function clear(){
+    days = document.querySelectorAll(".table > .weekday");
+    document.querySelector(".top > div > b").textContent = "Расписание группы ИКБО-" +
+        Math.ceil(Math.random() * 40).toString().padStart(2, '0') +
+        "-" +
+        Math.ceil(Math.random() * 3 + 20).toString()
+    for (let i = 0; i < days.length; i++) {
+        lessons = days[i].querySelectorAll(".weekday >div:not(.day)")
+        for (let j = 0; j < 6; j++) {
+            lessons[j].querySelector(".subject1").textContent = ""
+            lessons[j].querySelector(".subject2").textContent = ""
+            lessons[j].querySelector(".tutor1").textContent = ""
+            lessons[j].querySelector(".tutor2").textContent = ""
+            lessons[j].querySelector(".type1").textContent = ""
+            lessons[j].querySelector(".type2").textContent = ""
+            lessons[j].querySelector(".room1").textContent = ""
+            lessons[j].querySelector(".room2").textContent =""
+        }
+    }
+}
+
+function schedule() {
+    clear();
+    days = document.querySelectorAll(".table > .weekday");
+    document.querySelector(".top > div > b").textContent = "Расписание группы ИКБО-" +
+        Math.ceil(Math.random() * 40).toString().padStart(2, '0') +
+        "-" +
+        Math.ceil(Math.random() * 3 + 20).toString()
+    for (let i = 0; i < days.length; i++) {
+        lessons = days[i].querySelectorAll(".weekday >div:not(.day)")
+        let start = Math.ceil(Math.random() * 6)
+        let amount = Math.ceil(Math.random() * 6)
+        for (let j = start; j < Math.abs(start - amount) + start, j < 6; j++) {
+            lessons[j].querySelector(".subject1").textContent = subjects[Math.ceil(Math.random() * subjects.length) - 1]
+            lessons[j].querySelector(".subject2").textContent = subjects[Math.ceil(Math.random() * subjects.length) - 1]
+            lessons[j].querySelector(".tutor1").textContent = tutors[Math.ceil(Math.random() * tutors.length) - 1]
+            lessons[j].querySelector(".tutor2").textContent = tutors[Math.ceil(Math.random() * tutors.length) - 1]
+            lessons[j].querySelector(".type1").textContent = types[Math.ceil(Math.random() * types.length) - 1]
+            lessons[j].querySelector(".type2").textContent = types[Math.ceil(Math.random() * types.length) - 1]
+            lessons[j].querySelector(".room1").textContent = cabs[Math.ceil(Math.random() * cabs.length) - 1] + "-"
+                + (Math.ceil(Math.random() * 5) - 1).toString() + (Math.ceil(Math.random() * 10) - 1).toString() + (Math.ceil(Math.random() * 10) - 1).toString()
+            lessons[j].querySelector(".room2").textContent = cabs[Math.ceil(Math.random() * cabs.length) - 1] + "-"
+                + (Math.ceil(Math.random() * 5) - 1).toString() + (Math.ceil(Math.random() * 10) - 1).toString() + (Math.ceil(Math.random() * 10) - 1).toString()
+        }
     }
 }

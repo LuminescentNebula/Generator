@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="style.css" type="text/css" media="all">
     <link rel="stylesheet" href="schedule.css" type="text/css" media="all">
+    <script src="schedule_table.js" defer></script>
     <link rel="stylesheet" href="template.css" type="text/css" media="all">
     <script src="menu.js"></script>
     <link rel="icon" type="image/svg" href="resources/bird.svg">
@@ -18,16 +19,16 @@
 <header>
     <aside class="logo">
         <p class="logo">
-            <img src="resources/bird.svg" height="100px" usemap="#logo"/>
+            <img src="resources/bird.svg" height="100px" usemap="#logo" alt="Логотип"/>
             <map name="logo">
-                <area shape="rectangle" coords="0,0,100,100" href="index.html">
+                <area coords="0,0,100,100" href="index.html" alt="Главная">
             </map>
         </p>
     </aside>
     <ul class="menu">
         <li><a href=".\numbers.html">Числа</a></li>
         <li><a href=".\everything.html">Всё</a></li>
-        <li><a href=".\shedule.html">Расписание</a></li>
+        <li><a href=".\schedule.html">Расписание</a></li>
         <li><a href=".\form.html">Форма</a></li>
         <li><a href=".\gallery.html">Галерея</a></li>
         <li><a href=".\chaos.html">"Хаос"</a></li>
@@ -37,44 +38,592 @@
 </header>
 <div class="description">
     <h1>Секретная разработка учебного отдела!</h1>
-    <div>Нажмите чтобы придумать расписание</div>
+    <button onclick="schedule()">Нажмите чтобы придумать расписание</button>
 </div>
 
-<p><canvas id="canvas" style="border:2px solid black;" width="902" height="2160"></canvas>
-    <script>
-        var canvas = document.getElementById("canvas");
-        var ctx = canvas.getContext("2d");
-        var data = '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">' +
-            '<foreignObject width="100%" height="100%">' +
-            '<div xmlns="http://www.w3.org/1999/xhtml" style="font-size:40px">' +
-            '<div class="top" style="sh.css">' +
-            '    <div>' +
-            '        <b>Расписание группы ИКБО-03-21</b>' +
-            '        <div class="time">' +
-            '            <div>1-я пара: 09:00-10:30</div>' +
-            '            <div>5-я пара: 16:20-17:50</div>' +
-            '            <div>2-я пара: 10:40-12:10</div>' +
-            '            <div>6-я пара: 18:00-19:30</div>' +
-            '            <div>3-я пара: 12:40-14:10</div>' +
-            '            <div>7-я пара: 19:40-21:10</div>' +
-            '            <div>4-я пара: 14:20-15:50</div>' +
-            '        </div>' +
-            '    </div>' +
-            '</div>' +
-            '</div>' +
-            '</foreignObject>' +
-            '</svg>';
 
-        var DOMURL = self.URL || self.webkitURL || self;
-        var img = new Image();
-        var svg = new Blob([data], {type: "image/svg+xml;charset=utf-8"});
-        var url = DOMURL.createObjectURL(svg);
-        img.onload = function() {
-            ctx.drawImage(img, 0, 0);
-            DOMURL.revokeObjectURL(url);
-        };
-        img.src = url;
-    </script>
+<div class="schedule">
+    <div class="top">
+        <div>
+            <b>Расписание группы ИКБО-03-21</b>
+            <div class="time">
+                <div>1-я пара: 09:00-10:30</div>
+                <div>5-я пара: 16:20-17:50</div>
+                <div>2-я пара: 10:40-12:10</div>
+                <div>6-я пара: 18:00-19:30</div>
+                <div>3-я пара: 12:40-14:10</div>
+                <div>7-я пара: 19:40-21:10</div>
+                <div>4-я пара: 14:20-15:50</div>
+            </div>
+        </div>
+    </div>
+    <div class="table">
+        <div class="weekday">
+            <div class="day"><b>Понедельник</b></div>
+            <div>
+                <div class="number"><b>1</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>2</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>3</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>4</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>5</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>6</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>7</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+        </div>
+        <div class="weekday">
+            <div class="day"><b>Четверг</b></div>
+            <div>
+                <div class="number"><b>1</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>2</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>3</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>4</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>5</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>6</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>7</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+        </div>
+        <div class="weekday">
+            <div class="day"><b>Вторник</b></div>
+            <div>
+                <div class="number"><b>1</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>2</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>3</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>4</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>5</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>6</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>7</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+        </div>
+        <div class="weekday">
+            <div class="day"><b>Пятница</b></div>
+            <div>
+                <div class="number"><b>1</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>2</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>3</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>4</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>5</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>6</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>7</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+        </div>
+        <div class="weekday">
+            <div class="day"><b>Среда</b></div>
+            <div>
+                <div class="number"><b>1</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>2</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>3</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>4</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>5</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>6</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>7</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+        </div>
+        <div class="weekday">
+            <div class="day"><b>Суббота</b></div>
+            <div>
+                <div class="number"><b>1</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>2</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>3</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>4</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>5</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>6</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+            <div>
+                <div class="number"><b>7</b></div>
+                <div class="odd1">I</div>
+                <div class="odd2">II</div>
+                <div class="subject1"></div>
+                <div class="subject2"></div>
+                <div class="type1"></div>
+                <div class="type2"></div>
+                <div class="tutor1"></div>
+                <div class="tutor2"></div>
+                <div class="room1"></div>
+                <div class="room2"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 </body>
@@ -83,9 +632,8 @@
     <pre>Липпо Дмитрий ИКБО-<sup>03</sup>-<sub>21</sub></pre>
     <div class="media-box">
         <div class="media">
-            <div class="icon">
-                <a href="http://vk.com/reapion"></a>
-            </div>
+            <a class="icon" href="https://vk.com/reapion">
+            </a>
         </div>
     </div>
     <address>

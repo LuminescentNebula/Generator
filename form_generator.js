@@ -2,7 +2,7 @@ function generate_person() {
     /*TODO: Full generator*/
     let data="";
     let temp;
-    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     temp = Math.ceil((Math.random() * (10) + 1));
     for (let i =0;i<temp;i++){
         data+=characters.at(Math.ceil((Math.random() * (characters.length-1))));
@@ -10,12 +10,12 @@ function generate_person() {
     data+="@";
     temp = Math.ceil((Math.random() * (5) + 1));
     for (let i =0;i<temp;i++){
-        data+=characters.at(Math.ceil((Math.random() * (characters.length-11))));
+        data+=characters.at(Math.ceil((Math.random() * (characters.length-11-26))+26));
     }
     data+=".";
     temp = Math.ceil((Math.random() * (3) + 1));
     for (let i =0;i<temp;i++){
-        data+=characters.at(Math.ceil((Math.random() * (characters.length-11))));
+        data+=characters.at(Math.ceil(Math.random() * (characters.length-11-26))+26);
     }
     document.querySelector('input[name="email"]').value=data;
 
@@ -350,5 +350,18 @@ function generate_person() {
     data=first[Math.ceil((Math.random() * 146)-1)]+" "+last[Math.ceil((Math.random() * 146)-1)];
     document.querySelector('input[name="name"]').value = data;
 
+    document.querySelectorAll("#cars > option").item(0).selected=false;
+    document.querySelectorAll("#cars > option").item(1).selected=false;
+    document.querySelectorAll("#cars > option").item(2).selected=false;
+
+    document.querySelectorAll("#cars > option").item(Math.ceil((Math.random() * 3)-1)).selected=true;
+
+    a="qwertyuiop[]';lkjhgfdsazxcvbnm,./`1234567890-=~!@#$%^&*()_+{}:><?|\\\"QWERTYUIOPLKJHGFDSAZXCVBNM"
+
+    data=""
+    for (let i=0;i<Math.ceil((Math.random() * 5)+8);i++){
+        data+=a[Math.ceil((Math.random() * a.length))]
+    }
+    document.querySelector("#password").value = data;
 
 }

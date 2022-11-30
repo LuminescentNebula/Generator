@@ -1,3 +1,28 @@
+document.getElementById("many").addEventListener('change', () => {
+    if (document.getElementById("many").value>20){
+        document.getElementById("many").value=20;
+    }
+})
+document.getElementById("from").addEventListener('change', () => {
+    if (document.getElementById("from").value>100){
+        document.getElementById("from").value=100;
+    } else {
+        if (document.getElementById("from").value<-100){
+            document.getElementById("from").value=-100;
+        }
+    }
+})
+
+document.getElementById("to").addEventListener('change', () => {
+    if (document.getElementById("to").value>100){
+        document.getElementById("to").value=100;
+    } else {
+        if (document.getElementById("to").value<-100){
+            document.getElementById("to").value=-100;
+        }
+    }
+})
+
 function number() {
     from=parseInt(document.getElementById("from").value);
     to=parseInt(document.getElementById("to").value);
