@@ -9,7 +9,7 @@
 }
 
 .canvas > div {
-    width: 25em;
+    max-width: 25em;
     display: flex;
     flex-direction: column;
     margin: 20px;

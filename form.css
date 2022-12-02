@@ -23,7 +23,7 @@ form {
         position: relative;
         margin-bottom: 20px;
         padding: 5px;
-        width: 280px;
+        max-width: 280px;
         grid-template-columns: 270px;
         grid-template-rows: repeat(5, min-content);
     }

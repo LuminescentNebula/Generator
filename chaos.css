@@ -14,7 +14,7 @@
 .chaos-canvas > div > div{
     display: flex;
     flex-direction: column;
-    width: 25em;
+    max-width: 25em;
 }
 .chaos-canvas > div{
     margin: 20px;
@@ -35,7 +35,7 @@
     -webkit-align-items: center;
 }
 
-#start{
+#start {
     height: 5ex;
     background-color: gold;
     border: 2px solid firebrick;
@@ -44,7 +44,8 @@
     color: black;
     cursor: pointer;
     z-index: 50;
-    align-items: stretch;
+    align-items: center;
+    align-self: center;
     -webkit-align-items: center;
 }
 
