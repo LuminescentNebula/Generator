@@ -1,9 +1,3 @@
-#chaos{
-    width: 500px;
-    height:500px;
-    background: white;
-    border: black 2px solid;
-}
 .chaos-canvas{
     margin: 40px;
     display: flex;
@@ -52,4 +46,29 @@
     z-index: 50;
     align-items: stretch;
     -webkit-align-items: center;
+}
+
+canvas {
+    width: 500px;
+    height:500px;
+    background: white;
+    border: black 2px solid;
+    align-self: center;
+    min-width: 30%;
+    min-height: 50%;
+    max-width: 90%;
+    max-height: 80%;
+    object-fit: contain;
+    margin: auto;
+}
+
+@media only screen and (max-width: 800px) {
+    canvas {
+        min-width: 100px;
+        min-height: 100px;
+        width: 90%;
+        height: 100%;
+        max-width: 90%;
+        max-height: 90%;
+    }
 }

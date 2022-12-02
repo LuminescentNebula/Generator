@@ -5,6 +5,7 @@ function sleep(ms) {
 const canvas = document.getElementById("canvas")
 const ctx = canvas.getContext("2d");
 
+let n=10
 let h = 0
 
 async function reload() {
@@ -13,13 +14,13 @@ async function reload() {
     ctx.fillStyle = background
     canvas.width = 500;
     canvas.height = 500;
+    n=10
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     ctx.fillStyle = "red";
-    let n = 10
     let red = [(Math.ceil(Math.random() * canvas.width / n) - 1) * n, (Math.ceil(Math.random() * canvas.height / n) - 1) * n]
     ctx.fillRect(red[0], red[1], n, n)
     console.log(red[0], red[1])
-    yellow_go_brr(background, red, n, h);
+    yellow_go_brr(background, red, h);
 }
 
 function check(b, around, n) {
@@ -32,7 +33,7 @@ function check(b, around, n) {
         b.data.at(n * 4 - 2) === around[2] &&
         b.data.at(n * 4 - 1) === around[3];
 }
-async function yellow_go_brr(background, red, n, iter) {
+async function yellow_go_brr(background, red, iter) {
     let a;
     let b;
     let arr = []
@@ -77,31 +78,31 @@ async function yellow_go_brr(background, red, n, iter) {
             switch (arr[Math.ceil(Math.random() * arr.length) - 1]) {
                 case 1:
                     console.log("Вниз")
-                    ctx.fillRect(x, y, 10, 10 * 2)
+                    ctx.fillRect(x, y, n, n * 2)
                     ctx.fillStyle = "red"
-                    red = [x, y + 10 * 2]
-                    ctx.fillRect(x, y + 10 * 2, 10, 10)
+                    red = [x, y + n * 2]
+                    ctx.fillRect(x, y + n * 2, n, n)
                     break;
                 case 2:
                     console.log("Вправо")
-                    ctx.fillRect(x, y, 10 * 2, 10)
+                    ctx.fillRect(x, y, n * 2, n)
                     ctx.fillStyle = "red"
-                    red = [x + 10 * 2, y]
-                    ctx.fillRect(x + 10 * 2, y, 10, 10)
+                    red = [x + n * 2, y]
+                    ctx.fillRect(x + n * 2, y, n, n)
                     break;
                 case 3:
                     console.log("Вверх")
-                    ctx.fillRect(x, y + 10, 10, -10 * 2)
+                    ctx.fillRect(x, y + n, n, -n * 2)
                     ctx.fillStyle = "red"
-                    red = [x, y - 10 * 2]
-                    ctx.fillRect(x, y - 10 * 2, 10, 10)
+                    red = [x, y - n * 2]
+                    ctx.fillRect(x, y - n * 2, n, n)
                     break
                 case 4:
                     console.log("Влево")
-                    ctx.fillRect(x + 10, y, -10 * 2, 10)
+                    ctx.fillRect(x + n, y, -n * 2, n)
                     ctx.fillStyle = "red"
-                    red = [x - 10 * 2, y]
-                    ctx.fillRect(x - 10 * 2, y, 10, 10)
+                    red = [x - n * 2, y]
+                    ctx.fillRect(x - n * 2, y, n, n)
                     break
             }
         }
@@ -112,11 +113,11 @@ async function yellow_go_brr(background, red, n, iter) {
             } else {
                 red = temp_red
                 await sleep(10)
-                yellow_go_brr(background, red, n, iter)
+                yellow_go_brr(background, red, iter)
             }
         } else {
             await sleep(10)
-            yellow_go_brr(background, red, n, iter)
+            yellow_go_brr(background, red, iter)
         }
         stop()
     }
@@ -124,7 +125,6 @@ async function yellow_go_brr(background, red, n, iter) {
 
 async function blue_go_brr(red) {
     let background = [255, 255, 0, 255]
-    let n = 10
     let x
     let y
     let a;
@@ -170,31 +170,31 @@ async function blue_go_brr(red) {
         switch (arr[Math.ceil(Math.random() * arr.length) - 1]) {
             case 1:
                 console.log("Вниз")
-                ctx.fillRect(x, y, 10, 10 * 2)
+                ctx.fillRect(x, y, n, n * 2)
                 ctx.fillStyle = "red"
-                red = [x, y + 10 * 2]
-                ctx.fillRect(x, y + 10 * 2, 10, 10)
+                red = [x, y + n * 2]
+                ctx.fillRect(x, y + n * 2, n, n)
                 break;
             case 2:
                 console.log("Вправо")
-                ctx.fillRect(x, y, 10 * 2, 10)
+                ctx.fillRect(x, y, n * 2, n)
                 ctx.fillStyle = "red"
-                red = [x + 10 * 2, y]
-                ctx.fillRect(x + 10 * 2, y, 10, 10)
+                red = [x + n * 2, y]
+                ctx.fillRect(x + n * 2, y, n, n)
                 break;
             case 3:
                 console.log("Вверх")
-                ctx.fillRect(x, y + 10, 10, -10 * 2)
+                ctx.fillRect(x, y + n, n, -n * 2)
                 ctx.fillStyle = "red"
-                red = [x, y - 10 * 2]
-                ctx.fillRect(x, y - 10 * 2, 10, 10)
+                red = [x, y - n * 2]
+                ctx.fillRect(x, y - n * 2, n, n)
                 break
             case 4:
                 console.log("Влево")
-                ctx.fillRect(x + 10, y, -10 * 2, 10)
+                ctx.fillRect(x + n, y, -n * 2, n)
                 ctx.fillStyle = "red"
-                red = [x - 10 * 2, y]
-                ctx.fillRect(x - 10 * 2, y, 10, 10)
+                red = [x - n * 2, y]
+                ctx.fillRect(x - n * 2, y, n, n)
                 break
         }
     }
@@ -208,11 +208,15 @@ async function blue_go_brr(red) {
 
 }
 
+
+
 canvas.width = 500;
 canvas.height = 500;
+n=10
+ctx.update
 ctx.fillRect(0, 0, canvas.width, canvas.height)
 ctx.fillStyle = "red"
-red = [(Math.ceil(Math.random() * canvas.width / 10) - 1) * 10, (Math.ceil(Math.random() * canvas.height / 10) - 1) * 10]
-ctx.fillRect(red[0], red[1], 10, 10)
-yellow_go_brr([0, 0, 0, 255], red, 10, 0);
+red = [(Math.ceil(Math.random() * canvas.width / n) - 1) * n, (Math.ceil(Math.random() * canvas.height / n) - 1) * n]
+ctx.fillRect(red[0], red[1], n, n)
+yellow_go_brr([0, 0, 0, 255], red, 0);
 

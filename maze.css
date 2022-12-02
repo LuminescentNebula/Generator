@@ -1,20 +1,47 @@
-.canvas{
+.canvas {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 100%;
     margin-bottom: 10vh;
     margin-top: 20px;
 }
-.canvas >div{
+
+.canvas > div {
     width: 25em;
     display: flex;
     flex-direction: column;
     margin: 20px;
 
 }
-button{
+
+canvas {
+    align-self: center;
+    min-width: 30%;
+    min-height: 50%;
+    width: calc(100vh - 210px);
+    height: calc(100vh - 210px);
+    max-width: 90%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+@media only screen and (max-width: 800px) {
+    canvas {
+        min-width: 100px;
+        min-height: 100px;
+        width: 90%;
+        height: 100%;
+        max-width: 90%;
+        max-height: 90%;
+    }
+    .canvas{
+        flex-direction: column;
+    }
+}
+
+button {
     height: 5ex;
     background-color: gold;
     border: 2px solid firebrick;
@@ -23,6 +50,7 @@ button{
     color: black;
     cursor: pointer;
     z-index: 50;
-    align-items: stretch;
+    align-items: center;
+    align-self: center;
     -webkit-align-items: center;
 }
